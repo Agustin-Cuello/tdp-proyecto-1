@@ -61,6 +61,8 @@ public class SimplePresentationScreen extends JFrame {
 		
 		init();
 		
+		
+		
 		//Establece como valor de los textfield la información del estudiante
 		CampoLU.setText(Integer.toString(studentData.getId()));
 		CampoNombre.setText(studentData.getFirstName());
@@ -82,10 +84,10 @@ public class SimplePresentationScreen extends JFrame {
 		
 		
 		//Creo un objeto imagen para almacenar el recurso recuperado del path
-		Image image = new ImageIcon(this.getClass().getResource("/images/ImagenEstudiante.jpg")).getImage();
+		Image image = new ImageIcon(this.getClass().getResource(studentData.getPathPhoto())).getImage();
 		
 		//Escalo la imagen al tamaño definido por el JLabel donde se mostrará
-		Image imagen_escalada = image.getScaledInstance(LBL_IMAGEN.getWidth(), LBL_IMAGEN.getHeight(), 0);
+		Image imagen_escalada = image.getScaledInstance(LBL_IMAGEN.getWidth(), LBL_IMAGEN.getHeight(), java.awt.Image.SCALE_SMOOTH);
 		ImageIcon iconoLabel = new ImageIcon(imagen_escalada);
 		
 		LBL_IMAGEN.setIcon(iconoLabel);
